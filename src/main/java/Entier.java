@@ -1,8 +1,21 @@
 public class Entier implements Sommable<Entier> {
     private Integer value;
 
+    public Integer getEntier(){
+        return value;
+    }
+
+    public Entier(Integer value){
+        this.value = value;
+    }
+
     @Override
     public Entier sommer(Entier value) {
-        return null;
+        return new Entier(this.value + value.getEntier());
+    }
+
+    @Override
+    public int compareTo(Sommable o) {
+        return 0;
     }
 }

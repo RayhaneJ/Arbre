@@ -1,3 +1,3 @@
-public interface Sommable<T> {
-    public T sommer(final T value);
+public interface Sommable<T> extends Comparable<Sommable> {
+    T sommer(final T value);
 }
