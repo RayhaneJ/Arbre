@@ -15,7 +15,7 @@ public class Entier implements Sommable<Entier> {
     }
 
     @Override
-    public int compareTo(Sommable o) {
-        return 0;
+    public int compareTo(Entier o) {
+        return Integer.compare(value, o.getEntier());
     }
 }

@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Noeud<T> implements Arbre<T> {
+public class Noeud<T extends Sommable> implements Arbre<T> {
     private final List<Arbre> fils;
 
     public Noeud(final List<Arbre> fils) {
@@ -32,6 +32,43 @@ public class Noeud<T> implements Arbre<T> {
         Set<T> rtr = new HashSet<>();
         for (final Arbre a : fils) {
             rtr.addAll(a.valeurs());
+        }
+        return rtr;
+    }
+
+    public T somme() {
+        if(fils == null) return null;
+        if(fils.size() == 0) return null;
+        T v = (T) fils.get(0).somme();
+        for(int i = 1; i < fils.size(); i++)
+            v = (T) v.sommer(fils.get(i).somme());
+        return v;
+    }
+
+    @Override
+    public T min() {
+        if (fils == null || fils.size() == 0)
+            return null;
+        T rtr = (T) fils.get(0).min();
+        for (int i = 1; i < fils.size(); i++) {
+            T min = (T) fils.get(i).min();
+            if (min.compareTo(rtr) == -1) {
+                rtr = min;
+            }
+        }
+        return rtr;
+    }
+
+    @Override
+    public T max() {
+        if (fils == null || fils.size() == 0)
+            return null;
+        T rtr = (T) fils.get(0).max();
+        for (int i = 1; i < fils.size(); i++) {
+            T max = (T) fils.get(i).max();
+            if (max.compareTo(rtr) == 1) {
+                rtr = max;
+            }
         }
         return rtr;
     }

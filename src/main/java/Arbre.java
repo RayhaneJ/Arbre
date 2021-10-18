@@ -8,4 +8,5 @@ public interface Arbre<T>  {
     Set<T> valeurs();
     T min();
     T max();
+    T somme();
 }

@@ -20,4 +20,9 @@ public class Chaine implements Sommable<Chaine> {
     public String toString() {
         return chaine;
     }
+
+    @Override
+    public int compareTo(Chaine o) {
+        return this.chaine.compareTo(o.getChaine());
+    }
 }

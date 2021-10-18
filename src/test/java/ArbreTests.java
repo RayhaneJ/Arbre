@@ -63,4 +63,28 @@ public class ArbreTests {
         Chaine chaine = new Chaine("salut");
         Assert.assertNotEquals(chaine.sommer(new Chaine("cava")).getChaine(), "salutcsava");
     }
+
+    @Test
+    public void minFeuilleEntier(){
+        Feuille<Entier> v = new Feuille<Entier>(new Entier(2));
+        Assert.assertEquals(v.min().getEntier(), Integer.valueOf(2));
+    }
+
+    @Test
+    public void minFeuilleEntierError(){
+        Feuille<Entier> v = new Feuille<Entier>(new Entier(2));
+        Assert.assertNotEquals(v.min().getEntier(),Integer.valueOf(1));
+    }
+
+    @Test
+    public void minFeuilleChaine(){
+        Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
+        Assert.assertEquals(v.min().getChaine(), "un");
+    }
+
+    @Test
+    public void minFeuilleChaineError(){
+        Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
+        Assert.assertNotEquals(v.min().getChaine(), "deux");
+    }
 }
