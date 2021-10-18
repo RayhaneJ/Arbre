@@ -1,3 +1,3 @@
 public interface Sommable<T> {
-    public <T> void sommer(T value);
+    public T sommer(final T value);
 }

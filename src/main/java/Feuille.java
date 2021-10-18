@@ -14,12 +14,12 @@ public class Feuille<T> implements Arbre<T> {
     }
 
     @Override
-    public boolean contient(Object val) {
-        return false;
+    public boolean contient(T val) {
+        return val.equals(valeur);
     }
 
     @Override
     public Set valeurs() {
-        return null;
+        return Set.of(valeur);
     }
 }
