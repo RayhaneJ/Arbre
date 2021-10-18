@@ -9,4 +9,5 @@ public interface Arbre<T>  {
     T min();
     T max();
     T somme();
+    boolean estTrie();
 }

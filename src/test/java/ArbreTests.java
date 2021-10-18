@@ -87,4 +87,54 @@ public class ArbreTests {
         Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
         Assert.assertNotEquals(v.min().getChaine(), "deux");
     }
+
+    @Test
+    public void maxFeuilleEntier(){
+        Feuille<Entier> v = new Feuille<Entier>(new Entier(2));
+        Assert.assertEquals(v.max().getEntier(), Integer.valueOf(2));
+    }
+
+    @Test
+    public void maxFeuilleEntierError(){
+        Feuille<Entier> v = new Feuille<Entier>(new Entier(2));
+        Assert.assertNotEquals(v.max().getEntier(),Integer.valueOf(1));
+    }
+
+    @Test
+    public void maxFeuilleChaine(){
+        Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
+        Assert.assertEquals(v.max().getChaine(), "un");
+    }
+
+    @Test
+    public void maxFeuilleChaineError(){
+        Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
+        Assert.assertNotEquals(v.max().getChaine(), "deux");
+    }
+
+    @Test
+    public void getSommeChaine(){
+        Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
+        Assert.assertEquals(v.somme().getChaine(), "un");
+    }
+
+    @Test
+    public void getSommeChaineError(){
+        Feuille<Chaine> v = new Feuille<Chaine>(new Chaine("un"));
+        Assert.assertNotEquals(v.somme().getChaine(), "deux");
+    }
+
+    @Test
+    public void getSommeEntier(){
+        Feuille<Entier> v = new Feuille<Entier>(new Entier(5));
+        Assert.assertEquals(v.somme().getEntier(), Integer.valueOf((5)));
+    }
+
+    @Test
+    public void getSommeEntierError(){
+        Feuille<Entier> v = new Feuille<Entier>(new Entier(5));
+        Assert.assertNotEquals(v.somme().getEntier(), Integer.valueOf((10)));
+    }
+
+
 }

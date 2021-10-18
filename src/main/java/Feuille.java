@@ -37,4 +37,9 @@ public class Feuille<T> implements Arbre<T> {
     public T somme() {
         return valeur;
     }
+
+    @Override
+    public boolean estTrie() {
+        return true;
+    }
 }

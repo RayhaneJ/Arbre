@@ -46,6 +46,32 @@ public class Noeud<T extends Sommable> implements Arbre<T> {
     }
 
     @Override
+    public boolean estTrie() {
+        return conditionTrie1() && conditionTrie2();
+    }
+
+    public boolean conditionTrie1(){
+        boolean rtr = true;
+        for (int i = 0; i < fils.size() - 1; i++) {
+            final Arbre fi = fils.get(i);
+            if (!fi.estTrie())
+                return false;
+        }
+        return rtr;
+    }
+
+    private boolean conditionTrie2() {
+        boolean rtr = true;
+        for (int i = 0; i < fils.size() - 1; i++) {
+            final T fi = (T) fils.get(i);
+            final T fj = (T) fils.get(i+1);
+            if (fi.compareTo(fj) == 1)
+                return false;
+        }
+        return rtr;
+    }
+
+    @Override
     public T min() {
         if (fils == null || fils.size() == 0)
             return null;
